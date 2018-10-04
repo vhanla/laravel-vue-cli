@@ -374,8 +374,10 @@ class VuecliServiceProvider extends ServiceProvider
     $fs->moveDirectory($app_path.'/node_modules', base_path().'/node_modules');
 
     // Move all other files to base path
-    for($i = 0; $i < count($app_files); $i++){
-      $fs->move($app_path.'/'.$app_files[$i], base_path().'/'.$app_files[$i]);
+    foreach($appFiles as $appFile){
+      if (!in_array($appFile, $excludeFiles) && !is_dir($app_path.'/'.$appFile)){
+        $fs->move($app_path.'/'.$appFile, base_path().'/'.$appFile);
+      }
     }
 
     // Move laravel's public files to resources/public
