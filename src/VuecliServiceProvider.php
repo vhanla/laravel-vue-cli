@@ -375,7 +375,7 @@ class VuecliServiceProvider extends ServiceProvider
 
     // Move all other files to base path
     foreach($appFiles as $appFile){
-      if (!in_array($appFile, $excludeFiles) && !is_dir($app_path.'/'.$appFile)){
+      if (!in_array($appFile, $excludeFiles) && file_exists($app_path.'/'.$appFile) && !is_dir($app_path.'/'.$appFile)){
         $fs->move($app_path.'/'.$appFile, base_path().'/'.$appFile);
       }
     }
