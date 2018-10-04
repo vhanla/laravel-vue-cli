@@ -223,6 +223,10 @@ class VuecliServiceProvider extends ServiceProvider
       }
     }
 
+    if (sizeof($projects)==0){
+      return;
+    }
+
     $app_name = $cmd->choice('Then select its app-name here', $projects);
     $app_path = resource_path().'/'.$app_name;
 
