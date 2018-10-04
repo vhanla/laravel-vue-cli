@@ -308,7 +308,7 @@ class VuecliServiceProvider extends ServiceProvider
 
     if ($cmd->confirm('(Optional) Add Visual Studio Code launch and tasks settings?')){
 
-      $vscodepath = base_path('.vscodde');
+      $vscodepath = base_path('.vscode');
       if ( !file_exists($vscodepath) ) {
         mkdir($vscodepath, 0755, true);
       }
@@ -374,8 +374,8 @@ class VuecliServiceProvider extends ServiceProvider
     $fs->moveDirectory($app_path.'/node_modules', base_path().'/node_modules');
 
     // Move all other files to base path
-    foreach($app_files as $app_file){
-      $fs->move($app_path.'/'.$app_file, base_path().'/'.$app_file);
+    for($i = 0; $i < count($app_files); $i++){
+      $fs->move($app_path.'/'.$app_files[$i], base_path().'/'.$app_files[$i]);
     }
 
     // Move laravel's public files to resources/public
