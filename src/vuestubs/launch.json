@@ -1,0 +1,72 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "Listen for XDebug",
+      "type": "php",
+      "request": "launch",
+      "port": 9000
+    },
+    {
+      "name": "Launch currently open script",
+      "type": "php",
+      "request": "launch",
+      "program": "${file}",
+      "cwd": "${fileDirname}",
+      "port": 9000
+    },
+    {
+      "name": "Debug Build Service",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/@vue/cli-service/bin/vue-cli-service.js",
+      "args": [
+        "build",
+        "--watch"
+      ]
+    },
+    {
+      "name": "Launch in Firefox",
+      "type": "firefox",
+      "request": "launch",
+      "reAttach": true,
+      "url": "http://localhost/",
+      "webRoot": "${workspaceFolder}/resources/src",
+      "pathMappings": [
+        {"url": "webpack:///resources/src/", "path": "${webRoot}"}
+      ],
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**"
+      ],
+      "log": {
+        "consoleLevel": {
+          "PathConversion": "Debug",
+          "default": "Debug"
+        }
+      }
+    },
+    {
+      "name": "Attach to Chrome",
+      "type": "chrome",
+      "request": "attach",
+      "port": 9222,
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Launch Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "sourceMaps": true,
+      "url": "http://localhost",
+      "webRoot": "${workspaceFolder}/resources/src",
+      "sourceMapPathOverrides": {
+        "webpack:///./*": "${webRoot}/*",
+        "webpack:///./resources/src/*": "${webRoot}/*",
+        "webpack:///*": "*",
+        "webpack:///./~/*": "${webRoot}/node_modules/*",
+        "meteor://💻app/*": "${webRoot}/*"
+      }
+    }
+  ]
+}

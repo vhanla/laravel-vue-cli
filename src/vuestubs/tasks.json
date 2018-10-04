@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "runner": "terminal",
+  "tasks": [
+    {
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/node_modules/@vue/cli-service/bin/vue-cli-service.js",
+        "build"
+      ],
+      "type": "shell",
+      "label": "Build Vue Production",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/node_modules/@vue/cli-service/bin/vue-cli-service.js",
+        "build",
+        "--watch",
+        "--mode",
+        "production"
+      ],
+      "type": "shell",
+      "label": "Watch Vue Production",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": []
+    },
+    {
+      "command": "vue",
+      "args": [
+        "ui"
+      ],
+      "type": "shell",
+      "label": "Vue UI",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}

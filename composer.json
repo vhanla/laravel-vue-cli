@@ -1,0 +1,21 @@
+{
+    "name": "vhanla/laravel-vue-cli",
+    "description": "Laravel Vue Cli preset and integration",
+    "type": "package",
+    "require": {
+        "illuminate/support": "^5.7@dev"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "vhanla",
+            "email": "vhanla@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Vhanla\\Vuecli\\": "src/"
+        }
+    }
+}
