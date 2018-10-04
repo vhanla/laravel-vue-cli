@@ -10,7 +10,7 @@
         <!-- remove next tag if not pwa -->
         <link rel="manifest" href="/manifest.json">
         <!-- preload assets -->
-        <link href="@vuecli(about.js)" rel=prefetch>
+        <link href="@vuecli(about.js, true)" rel=prefetch>
         <link href="@vuecli(app.css)" rel=preload as=style>
         <link href="@vuecli(app.js)" rel=preload as=script>
         <link href="@vuecli(chunk-vendors.js, true)" rel=preload as=script>
