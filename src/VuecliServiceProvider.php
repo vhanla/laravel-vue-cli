@@ -235,20 +235,10 @@ class VuecliServiceProvider extends ServiceProvider
       return;
     }
 
-      // check if package json exists
+    // check if package json exists
     if (!file_exists($app_path . '/package.json')) {
       $cmd->error('Invalid project, package.json was not found!');
       return;
-    }
-
-    // Lists files to move to root folder
-    $appFiles = scandir($app_path);
-    $app_files = [];
-    $excludeFiles = ['README.md', '.gitignore', '.', '..'];
-    foreach($appFiles as $appFile){
-      if (!in_array($appFile, $excludeFiles) && !is_dir($app_path.'/'.$appFile)){
-        $app_files[] = [$appFile, 'A To Laravel\'s root directory'];
-      }
     }
 
     // Add npm packages required for our package
@@ -280,6 +270,16 @@ class VuecliServiceProvider extends ServiceProvider
     if (file_exists($app_path.'/cypress.json')){
       static::updateCypress($app_path.'/cypress.json',
         $app_path.'/cypress.json');
+    }
+
+    // Lists files to move to root folder
+    $appFiles = scandir($app_path);
+    $app_files = [];
+    $excludeFiles = ['README.md', '.gitignore', '.', '..'];
+    foreach($appFiles as $appFile){
+      if (!in_array($appFile, $excludeFiles) && !is_dir($app_path.'/'.$appFile)){
+        $app_files[] = [$appFile, 'A To Laravel\'s root directory'];
+      }
     }
 
     $cmd->info('This preset will make the following changes:');
