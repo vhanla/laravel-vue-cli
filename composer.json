@@ -3,7 +3,7 @@
     "description": "Laravel Vue Cli preset and integration",
     "type": "package",
     "require": {
-        "illuminate/support": "^5.7@dev"
+        "illuminate/support": "^5.4"
     },
     "license": "MIT",
     "authors": [
@@ -12,7 +12,7 @@
             "email": "vhanla@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "Vhanla\\Vuecli\\": "src/"
